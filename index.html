@@ -1,19 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Sitio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e2f;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #282a36;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .link-container {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #44475a;
+            display: inline-block;
+            border-radius: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #50fa7b;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #ff79c6;
+        }
+        .image-container {
+            margin-top: 30px;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+        }
+        .download {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #6272a4;
+            display: inline-block;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenido a mi sitio</h1>
-    <div>
-        <a href="presentacion.html">Ver mi presentación</a>
-    </div>
-    <div>
-        <a href="curriculum.html">Ver mi Currículum</a>
-    </div>
-
-    <div>
-        <a href="102 etiquetas.html">Ver mi 102 etiquetas</a>
+    <header>Bienvenido a Mi Sitio</header>
+    
+    <div class="container">
+        <div class="image-container">
+            <img src="programacion.png" alt="Imagen de programación">
+        </div>
+        
+        <div class="link-container">
+            <a href="presentacion.html">Ver mi presentación</a>
+        </div>
+        <div class="link-container">
+            <a href="curriculum.html">Ver mi Currículum</a>
+        </div>
+        <div class="link-container">
+            <a href="102 etiquetas.html">Ver mis 102 etiquetas</a>
+        </div>
+        
+        
     </div>
 </body>
 </html>
