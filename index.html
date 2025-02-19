@@ -1,75 +1,130 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('imagenes/programacion_fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            backdrop-filter: blur(10px);
-        }
-        header {
-            background-color: rgba(40, 42, 54, 0.8);
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .link-container {
-            margin: 15px 0;
-            padding: 10px;
-            background-color: rgba(68, 71, 90, 0.8);
-            display: inline-block;
-            border-radius: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #1ac91a;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        a:hover {
-            color: #79fbff;
-        }
-        .image-container {
-            margin-top: 30px;
-        }
-        img {
-            width: 300px;
-            border-radius: 10px;
-        }
-        .download {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(98, 114, 164, 0.8);
-            display: inline-block;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-    <header>Bienvenido a INF5170-1</header>
-    <h1>Radhames Silverio Gonzalez</h1>
-    
-        <div class="link-container">
-            <a href="presentacion.html">Ver mi presentación</a>
-        </div>
-        <div class="link-container">
-            <a href="curriculum.html">Ver mi Currículum</a>
-        </div>
-        <div class="link-container">
-            <a href="102 etiquetas.html">Ver mis 102 etiquetas</a>
-        </div>
-        
-    
-</body>
-</html>
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Barra Superior */
+.top-bar {
+    background-color: #1f3b64;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.top-bar nav a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Encabezado */
+header {
+    text-align: center;
+    padding: 15px 0;
+    background-color: #f8f9fa;
+}
+
+header h1 {
+    color: #1f3b64;
+}
+
+header p {
+    color: gray;
+}
+
+/* Menú Principal */
+.main-menu {
+    background-color: #ffffff;
+    border-bottom: 2px solid #ddd;
+}
+
+.main-menu ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.main-menu li {
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-menu a:hover {
+    color: #007bff;
+}
+
+/* Menú Secundario (Oculto por defecto) */
+.sub-menu {
+    background-color: #007bff;
+    display: none;
+}
+
+.sub-menu ul {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
+
+.sub-menu li {
+    padding: 15px 20px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 700px;
+    left: 0;
+    top: 50px;
+    padding: 20px;
+    border-radius: 4px;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    border: 1px solid #ddd;
+}
+
+/* Mostrar dropdown solo al pasar el cursor */
+.dropdown:hover .dropdown-content {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Imagen de Portada */
+.hero {
+    background-image: url('portada.jpg');
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Mostrar la barra cuando se activa */
+.show {
+    display: block;
+}
