@@ -128,11 +128,6 @@ body {
     font-weight: bold;
 }
 
-.navbar ul li a:hover {
-    background-color: #1E88C3;
-}
-
-
 .cuentas-menu {
     display: none;
     position: absolute;
@@ -182,7 +177,7 @@ body {
     font-size: 16px;
     font-weight: 700;
     padding-bottom: 10px;
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid #f5f2f2;
 }
 
 .cuentas-menu ul {
