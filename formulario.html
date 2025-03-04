@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Dinámico</title>
+    <link rel="stylesheet" href="diseno.css">
+</head>
+<body>
+    <header>
+        <h1>Menú Dinámico</h1>
+    </header>
+    
+    <main>
+        
+
+        <!-- Formulario para agregar opciones al menú -->
+        <form id="formulario">
+            <h2>Agregar Nueva Opción</h2>
+            <label for="id">ID:</label>
+            <input type="number" id="id" required placeholder="Ej: 5">
+            
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required placeholder="Ej: Blog">
+            
+            <label for="enlace">Enlace:</label>
+            <input type="text" id="enlace" required placeholder="Ej: /blog">
+            
+            <button type="submit">Agregar Opción</button>
+        </form>
+
+        <!-- Mensaje dinámico -->
+        <div id="message-box" class="hidden"></div>
+    </main>
+
+    <script src="./menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    background: rgba(52, 152, 219, 0.2); /* Azul translúcido */
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+main {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Blanco con transparencia */
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos de los selects y formularios */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    color: rgba(44, 62, 80, 1);
+}
+
+select, input {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid rgba(41, 128, 185, 0.8);
+    border-radius: 5px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    background: rgba(41, 128, 185, 1);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: rgba(22, 160, 133, 1);
+}
+
+/* Mensaje de error en select */
+select:disabled {
+    background: rgba(231, 76, 60, 0.8);
+    color: white;
+}
+
+#message-box {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Mensaje en verde cuando se agrega correctamente */
+.success {
+    color: green;
+    background-color: #d4edda;
+    border: 1px solid #155724;
+}
+
+/* Mensaje en rojo cuando hay error */
+.error {
+    color: red;
+    background-color: #f8d7da;
+    border: 1px solid #721c24;
+}
+
