@@ -1,24 +1,36 @@
 {
   "menu": [
     {
-      "id": 1,
-      "nombre": "Inicio",
-      "enlace": "/inicio"
+      "id": "deportes",
+      "categoria": "Canales de Deportes",
+      "subcategorias": [
+        { "nombre": "ESPN", "enlace": "https://www.espn.com.do/" },
+        { "nombre": "Fox Sports", "enlace": "https://www.foxsports.com/" },
+        { "nombre": "TNT Sports", "enlace": "https://www.tntsports.com/" },
+        { "nombre": "DAZN", "enlace": "https://www.dazn.com/" }
+      ]
     },
+
     {
-      "id": 2,
-      "nombre": "Sobre Nosotros",
-      "enlace": "/sobre-nosotros"
+      "id": "plataformas",
+      "categoria": "Canales de Plataformas",
+      "subcategorias": [
+        { "nombre": "Netflix", "enlace": "https://www.netflix.com/" },
+        { "nombre": "Disney+", "enlace": "https://www.disneyplus.com/" },
+        { "nombre": "Amazon Prime", "enlace": "https://www.primevideo.com/" },
+        { "nombre": "HBO Max", "enlace": "https://www.hbomax.com/" }
+      ]
     },
+
     {
-      "id": 3,
-      "nombre": "Servicios",
-      "enlace": "/servicios"
-    },
-    {
-      "id": 4,
-      "nombre": "Contacto",
-      "enlace": "/contacto"
+      "id": "redes",
+      "categoria": "Canales de Redes",
+      "subcategorias": [
+        { "nombre": "YouTube", "enlace": "https://www.youtube.com/" },
+        { "nombre": "Twitch", "enlace": "https://www.twitch.tv/" },
+        { "nombre": "Facebook", "enlace": "https://www.facebook.com/" },
+        { "nombre": "Instagram", "enlace": "https://www.instagram.com/" }
+      ]
     }
   ]
 }
