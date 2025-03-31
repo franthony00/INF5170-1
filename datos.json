@@ -1,0 +1,29 @@
+{
+  "persona": {
+    "nombre": "",
+    "apellido": "",
+    "edad": "",
+    "sexo": ""
+  },
+  "familiares": [
+    {
+      "nombre": "",
+      "parentesco": "",
+      "edad": ""
+    }
+  ],
+  "condiciones": [
+    {
+      "enfermedad": "",
+      "tiempo": "",
+      "detalle": ""
+    }
+  ],
+  "internamientos": [
+    {
+      "fecha": "",
+      "centroMedico": "",
+      "diagnostico": ""
+    }
+  ]
+}
