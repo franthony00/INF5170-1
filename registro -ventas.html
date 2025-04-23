@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Formulario de Ventas con Gráfico</title>
+  <link rel="stylesheet" href="vent.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Ventas Mensuales</h1>
+    <form id="salesForm">
+      <input type="text" id="month" placeholder="Mes (ej. Enero)" required>
+      <input type="number" id="amount" placeholder="Monto de ventas" required>
+      <button type="submit">Agregar</button>
+    </form>
+    <canvas id="salesChart"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="ventas.js"></script>
+</body>
+</html>
