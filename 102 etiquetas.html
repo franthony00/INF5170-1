@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Completa de Etiquetas HTML</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <h1>Lista Completa de Etiquetas HTML</h1>
+    
+    <h2>Estructura Básica</h2>
+    <table>
+        <tr><th>Etiqueta</th><th>Descripción</th><th>Ejemplo</th><th>Elemento Adicional</th></tr>
+        <tr><td>&lt;html&gt;</td><td>Raíz del documento HTML</td><td>&lt;html&gt;&lt;/html&gt;</td><td>Debe contener &lt;head&gt; y &lt;body&gt;.</td></tr>
+        <tr><td>&lt;head&gt;</td><td>Contiene metadatos y enlaces</td><td>&lt;head&gt;&lt;title&gt;Título&lt;/title&gt;&lt;/head&gt;</td><td>No visible en la página.</td></tr>
+        <tr><td>&lt;title&gt;</td><td>Define el título del documento</td><td>&lt;title&gt;Mi Sitio&lt;/title&gt;</td><td>Aparece en la pestaña del navegador.</td></tr>
+        <tr><td>&lt;body&gt;</td><td>Contenido principal del documento</td><td>&lt;body&gt;&lt;h1&gt;Hola&lt;/h1&gt;&lt;/body&gt;</td><td>Soporta todos los elementos visibles.</td></tr>
+        <tr><td>&lt;!DOCTYPE&gt;</td><td>Define la versión de HTML</td><td>&lt;!DOCTYPE html&gt;</td><td>Obligatorio al inicio del documento.</td></tr>
+    </table>
+    
+    <h2>Formularios y Entradas</h2>
+    <table>
+        <tr><th>Etiqueta</th><th>Descripción</th><th>Ejemplo</th><th>Elemento Adicional</th></tr>
+        <tr><td>&lt;form&gt;</td><td>Contenedor de formulario</td><td>&lt;form action="/submit" method="POST"&gt;&lt;/form&gt;</td><td>Atributos: action, method.</td></tr>
+        <tr><td>&lt;input&gt;</td><td>Campo de entrada</td><td>&lt;input type="text" name="nombre"&gt;</td><td>Tipos: text, email, password, etc.</td></tr>
+        <tr><td>&lt;textarea&gt;</td><td>Área de texto multilínea</td><td>&lt;textarea rows="4"&gt;&lt;/textarea&gt;</td><td>Atributos: rows, cols.</td></tr>
+        <tr><td>&lt;button&gt;</td><td>Botón interactivo</td><td>&lt;button type="submit"&gt;Enviar&lt;/button&gt;</td><td>Tipos: submit, reset, button.</td></tr>
+        <tr><td>&lt;select&gt;</td><td>Lista desplegable</td><td>&lt;select&gt;&lt;option&gt;Opción 1&lt;/option&gt;&lt;/select&gt;</td><td>Agrupa opciones.</td></tr>
+    </table>
+
+    <h2>Multimedia</h2>
+    <table>
+        <tr><th>Etiqueta</th><th>Descripción</th><th>Ejemplo</th><th>Elemento Adicional</th></tr>
+        <tr><td>&lt;img&gt;</td><td>Imagen</td><td>&lt;img src="imagen.jpg" alt="Descripción"&gt;</td><td>Requiere alt para accesibilidad.</td></tr>
+        <tr><td>&lt;audio&gt;</td><td>Audio</td><td>&lt;audio controls&gt;&lt;source src="audio.mp3"&gt;&lt;/audio&gt;</td><td>Soporta MP3, WAV, OGG.</td></tr>
+        <tr><td>&lt;video&gt;</td><td>Video</td><td>&lt;video controls&gt;&lt;source src="video.mp4"&gt;&lt;/video&gt;</td><td>Atributos: autoplay, loop.</td></tr>
+        <tr><td>&lt;iframe&gt;</td><td>Marco embebido</td><td>&lt;iframe src="https://ejemplo.com"&gt;&lt;/iframe&gt;</td><td>Incrusta contenido externo.</td></tr>
+    </table>
+    
+    <h2>Tablas</h2>
+    <table>
+        <tr><th>Etiqueta</th><th>Descripción</th><th>Ejemplo</th><th>Elemento Adicional</th></tr>
+        <tr><td>&lt;table&gt;</td><td>Tabla</td><td>&lt;table&gt;&lt;/table&gt;</td><td>Requiere filas y celdas.</td></tr>
+        <tr><td>&lt;tr&gt;</td><td>Fila</td><td>&lt;tr&gt;&lt;td&gt;Dato&lt;/td&gt;&lt;/tr&gt;</td><td>Contiene &lt;td&gt; o &lt;th&gt;.</td></tr>
+        <tr><td>&lt;td&gt;</td><td>Celda de datos</td><td>&lt;td&gt;Texto&lt;/td&gt;</td><td>Se encuentra dentro de filas.</td></tr>
+        <tr><td>&lt;th&gt;</td><td>Celda de encabezado</td><td>&lt;th&gt;Título&lt;/th&gt;</td><td>Negrita y centrado.</td></tr>
+    </table>
+    
+    
+</body>
+</html>

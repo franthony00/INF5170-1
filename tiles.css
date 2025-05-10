@@ -1,0 +1,106 @@
+body {
+  background-color: #f3f4f6;
+  min-height: 100vh;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.container {
+  max-width: 768px;
+  margin: auto;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.main-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  background-color: #122b55;
+  color: white;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.75rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent;
+  transition: background 0.2s;
+}
+.tab:hover {
+  background-color: #f3f4f6;
+}
+.tab.active {
+  background-color: #3b82f6;
+  color: white;
+}
+
+[data-tab-content] {
+  display: none;
+}
+[data-tab-content].active {
+  display: block;
+}
+
+.form-wrapper {
+  padding: 1rem;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+.btn-blue {
+  background-color: #122b55;
+}
+.btn-blue:hover {
+  background-color: #122b55;
+}
+.btn-red {
+  background-color: #ef4444;
+}
+.btn-red:hover {
+  background-color: #dc2626;
+}
+
+.notification {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  background-color: #22c55e;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}

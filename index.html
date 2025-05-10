@@ -3,76 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('imagenes/programacion_fondo.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            backdrop-filter: blur(10px);
-        }
-        header {
-            background-color: rgba(40, 42, 54, 0.8);
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .link-container {
-            margin: 15px 0;
-            padding: 10px;
-            background-color: rgba(68, 71, 90, 0.8);
-            display: inline-block;
-            border-radius: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #1ac91a;
-            font-size: 18px;
-            font-weight: bold;
-        }
-        a:hover {
-            color: #79fbff;
-        }
-        .image-container {
-            margin-top: 30px;
-        }
-        img {
-            width: 300px;
-            border-radius: 10px;
-        }
-        .download {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: rgba(98, 114, 164, 0.8);
-            display: inline-block;
-            border-radius: 10px;
-        }
-    </style>
+    <title>Trabajos del Semestre</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="semes.css">
 </head>
-<body>
-    <header>Bienvenido a INF5170-1</header>
-    <h1>Radhames Silverio Gonzalez</h1>
-    
-        
-
-        <div class="link-container">
-            <a href="registro.html">Ver página de Registro</a>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md mx-auto">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-6">
+                <button id="toggle-menu" class="w-full text-xl font-bold text-gray-800 mb-6 text-center hover:text-blue-600 transition">
+                    Trabajos del Semestre <i class="fas fa-chevron-down ml-2 text-sm"></i>
+                </button>
+                <div id="menu-container" class="space-y-2 hidden"></div>
+                <div class="mt-8 text-center text-sm text-gray-500">
+                    <p>Seleccione un proyecto</p>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <div class="link-container">
-            <a href="formulario.html">Ver página de Formulario</a>
-        </div>
-
-        <div class="link-container">
-            <a href="registro -ventas.html">Ver página de Registro-ventas</a>
-        </div>
-    
+    <script src="trabajo.js"></script>
+    <script src="semestre.js"></script>
 </body>
 </html>

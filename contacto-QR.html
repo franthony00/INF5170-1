@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto con QR</title>
+    <link rel="stylesheet" href="diseno.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Formulario de Contacto</h1>
+        <form id="contact-form">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="tel" id="telefono" placeholder="Teléfono" required>
+            <input type="email" id="email" placeholder="Correo electrónico" required>
+            <button type="submit">Generar QR</button>
+        </form>
+
+        <div id="qr-container">
+            <h2>Tu Código QR</h2>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <script src="qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

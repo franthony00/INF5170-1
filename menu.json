@@ -1,36 +1,29 @@
 {
-  "menu": [
+  "persona": {
+    "nombre": "",
+    "apellido": "",
+    "edad": "",
+    "sexo": ""
+  },
+  "familiares": [
     {
-      "id": "deportes",
-      "categoria": "Canales de Deportes",
-      "subcategorias": [
-        { "nombre": "ESPN", "enlace": "https://www.espn.com.do/" },
-        { "nombre": "Fox Sports", "enlace": "https://www.foxsports.com/" },
-        { "nombre": "TNT Sports", "enlace": "https://www.tntsports.com/" },
-        { "nombre": "DAZN", "enlace": "https://www.dazn.com/" }
-      ]
-    },
-
+      "nombre": "",
+      "parentesco": "",
+      "edad": ""
+    }
+  ],
+  "condiciones": [
     {
-      "id": "plataformas",
-      "categoria": "Canales de Plataformas",
-      "subcategorias": [
-        { "nombre": "Netflix", "enlace": "https://www.netflix.com/" },
-        { "nombre": "Disney+", "enlace": "https://www.disneyplus.com/" },
-        { "nombre": "Amazon Prime", "enlace": "https://www.primevideo.com/" },
-        { "nombre": "HBO Max", "enlace": "https://www.hbomax.com/" }
-      ]
-    },
-
+      "enfermedad": "",
+      "tiempo": "",
+      "detalle": ""
+    }
+  ],
+  "internamientos": [
     {
-      "id": "redes",
-      "categoria": "Canales de Redes",
-      "subcategorias": [
-        { "nombre": "YouTube", "enlace": "https://www.youtube.com/" },
-        { "nombre": "Twitch", "enlace": "https://www.twitch.tv/" },
-        { "nombre": "Facebook", "enlace": "https://www.facebook.com/" },
-        { "nombre": "Instagram", "enlace": "https://www.instagram.com/" }
-      ]
+      "fecha": "",
+      "centroMedico": "",
+      "diagnostico": ""
     }
   ]
-}
+  }

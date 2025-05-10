@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Acceso a BD</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tiles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-title">Acceso a BD</h1>
+
+    <div class="tabs">
+      <button data-tab-target="#create" class="tab active">Crear</button>
+      <button data-tab-target="#read" class="tab">Leer</button>
+      <button data-tab-target="#update" class="tab">Actualizar</button>
+      <button data-tab-target="#delete" class="tab">Eliminar</button>
+    </div>
+
+    <div class="form-wrapper">
+      <div id="create" data-tab-content class="active">
+        <h2 class="form-title">Crear Registro</h2>
+        <form id="createForm" class="space-y-4">
+          <div>
+            <label class="label">Nombre</label>
+            <input type="text" id="createName" class="input" required />
+          </div>
+          <div>
+            <label class="label">Email</label>
+            <input type="email" id="createEmail" class="input" required />
+          </div>
+          <button type="submit" class="btn btn-blue">Guardar</button>
+        </form>
+      </div>
+
+      <div id="read" data-tab-content>
+        <h2 class="form-title">Buscar Registros</h2>
+        <form id="searchForm" class="space-y-4">
+          <div>
+            <label class="label">Buscar por nombre</label>
+            <input type="text" id="searchName" class="input"/>
+          </div>
+          <button type="submit" class="btn btn-blue">Buscar</button>
+        </form>
+        <div id="searchResults" class="mt-4 hidden">
+          <h3 class="font-medium mb-2">Resultados:</h3>
+          <div id="resultsList" class="space-y-2"></div>
+        </div>
+      </div>
+
+      <div id="update" data-tab-content>
+        <h2 class="form-title">Actualizar Registro</h2>
+        <form id="updateForm" class="space-y-4">
+          <div>
+            <label class="label">ID del registro</label>
+            <input type="text" id="updateId" class="input" required />
+          </div>
+          <div>
+            <label class="label">Nuevo nombre</label>
+            <input type="text" id="updateName" class="input" required />
+          </div>
+          <div>
+            <label class="label">Nuevo email</label>
+            <input type="email" id="updateEmail" class="input" required />
+          </div>
+          <button type="submit" class="btn btn-blue">Actualizar</button>
+        </form>
+      </div>
+
+      <div id="delete" data-tab-content>
+        <h2 class="form-title">Eliminar Registro</h2>
+        <form id="deleteForm" class="space-y-4">
+          <div>
+            <label class="label">ID del registro</label>
+            <input type="text" id="deleteId" class="input" required />
+          </div>
+          <button type="submit" class="btn btn-red">Eliminar</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="notification" class="notification hidden"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

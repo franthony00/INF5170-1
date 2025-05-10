@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Menú Desplegable Dinámico</title>
+  <link rel="stylesheet" href="des.css">
+</head>
+<body>
+
+  <!-- Menú de navegación -->
+  <nav id="menu"></nav>
+
+  <!-- Editor de menú -->
+  <div class="editor">
+    <h2>Modificar Menú</h2>
+
+    <form id="addSubmenuForm">
+      <label>Elegir sección:</label>
+      <select id="mainMenuSelect"></select>
+
+      <label>Nombre del submenú:</label>
+      <input type="text" id="submenuName" required>
+
+      <label>URL:</label>
+      <input type="url" id="submenuURL" required>
+
+      <button type="submit">Agregar Submenú</button>
+    </form>
+
+    <!-- Tabla de eliminación -->
+    <h3>Eliminar submenús</h3>
+    <table id="deleteTable">
+      <thead>
+        <tr>
+          <th>Sección</th>
+          <th>Nombre del Submenú</th>
+          <th>URL</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <!-- Scripts -->
+  <script src="menuData.js"></script>
+  <script src="men.js"></script>
+</body>
+</html>
