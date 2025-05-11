@@ -39,6 +39,21 @@
         
       </div>
 
+      <div id="read" data-tab-content>
+        <h2 class="form-title">Buscar Registros</h2>
+        <form id="searchForm" class="space-y-4">
+          <div>
+            <label class="label">Buscar por nombre</label>
+            <input type="text" id="searchName" class="input" />
+          </div>
+          <button type="submit" class="btn btn-blue">Buscar</button>
+        </form>
+        <div id="searchResults" class="mt-4 hidden">
+          <h3 class="font-medium mb-2">Resultados:</h3>
+          <div id="resultsList" class="space-y-2"></div>
+        </div>
+      </div>
+      
       <div id="update" data-tab-content>
         <h2 class="form-title">Actualizar Registro</h2>
         <form id="updateForm" class="space-y-4">
@@ -58,12 +73,6 @@
         </form>
       </div>
       
-
-      <div id="update" data-tab-content>
-        <h2 class="form-title">Actualizar Registro</h2>
-        
-      </div>
-
       <div id="delete" data-tab-content>
         <h2 class="form-title">Eliminar Registro</h2>
         <form id="deleteForm" class="space-y-4">
