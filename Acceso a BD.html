@@ -39,20 +39,25 @@
         
       </div>
 
-      <div id="read" data-tab-content>
-        <h2 class="form-title">Buscar Registros</h2>
-        <form id="searchForm" class="space-y-4">
+      <div id="update" data-tab-content>
+        <h2 class="form-title">Actualizar Registro</h2>
+        <form id="updateForm" class="space-y-4">
           <div>
-            <label class="label">Buscar por nombre</label>
-            <input type="text" id="searchName" class="input"/>
+            <label class="label">ID del usuario</label>
+            <input type="text" id="updateId" class="input" required />
           </div>
-          <button type="submit" class="btn btn-blue">Buscar</button>
+          <div>
+            <label class="label">Nuevo nombre</label>
+            <input type="text" id="updateName" class="input" required />
+          </div>
+          <div>
+            <label class="label">Nuevo email</label>
+            <input type="email" id="updateEmail" class="input" required />
+          </div>
+          <button type="submit" class="btn btn-blue">Actualizar</button>
         </form>
-        <div id="searchResults" class="mt-4 hidden">
-          <h3 class="font-medium mb-2">Resultados:</h3>
-          <div id="resultsList" class="space-y-2"></div>
-        </div>
       </div>
+      
 
       <div id="update" data-tab-content>
         <h2 class="form-title">Actualizar Registro</h2>
@@ -61,8 +66,15 @@
 
       <div id="delete" data-tab-content>
         <h2 class="form-title">Eliminar Registro</h2>
-        
+        <form id="deleteForm" class="space-y-4">
+          <div>
+            <label class="label">ID del usuario a eliminar</label>
+            <input type="text" id="deleteId" class="input" required />
+          </div>
+          <button type="submit" class="btn btn-red">Eliminar</button>
+        </form>
       </div>
+      
     </div>
 
     <div id="notification" class="notification hidden"></div>
