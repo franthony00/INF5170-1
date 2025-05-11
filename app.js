@@ -1,137 +1,209 @@
-// Base de datos simulada en memoria
-let database = [];
-let nextId = 1; // ID incremental para los registros
+// Importaciones de Firebase (asegúrate de que estas URLs sean accesibles)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getDatabase, ref, set, push, get, update, remove } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-database.js";
 
-// Gestión de pestañas (tabs)
-document.querySelectorAll('[data-tab-target]').forEach(tab => {
-  tab.addEventListener('click', () => {
-    // Oculta todos los contenidos de pestañas
-    document.querySelectorAll('[data-tab-content]').forEach(content => content.classList.remove('active'));
+// Configuración de Firebase (tus credenciales)
+const firebaseConfig = {
+  apiKey: "AIzaSyB2wLuqs_U0XuzwDeg_av-YuXFOY1na-0c",
+  authDomain: "inf5170-1-ea7a1.firebaseapp.com",
+  databaseURL: "https://inf5170-1-ea7a1-default-rtdb.firebaseio.com",
+  projectId: "inf5170-1-ea7a1",
+  storageBucket: "inf5170-1-ea7a1.appspot.com",
+  messagingSenderId: "747436095921",
+  appId: "1:747436095921:web:b22bec31f15afde9c86590"
+};
 
-    // Desactiva todos los botones de pestaña
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
-    // Activa el contenido y la pestaña correspondiente
-    document.querySelector(tab.dataset.tabTarget).classList.add('active');
-    tab.classList.add('active');
-  });
-});
-
-// Evento para crear un nuevo registro
-document.getElementById('createForm').addEventListener('submit', e => {
-  e.preventDefault(); // Evita recargar la página
-
-  // Crea un nuevo objeto con los datos del formulario
-  const newRecord = {
-    id: nextId++, // Asigna ID y lo incrementa
-    name: document.getElementById('createName').value,
-    email: document.getElementById('createEmail').value
-  };
-
-  // Agrega el nuevo registro a la base de datos
-  database.push(newRecord);
-
-  // Muestra notificación y limpia el formulario
-  showNotification('Registro creado con éxito');
-  e.target.reset();
-});
-
-// Evento para buscar registros por nombre
-document.getElementById('searchForm').addEventListener('submit', e => {
-  e.preventDefault();
-
-  // Obtiene el término de búsqueda en minúsculas
-  const searchTerm = document.getElementById('searchName').value.toLowerCase();
-
-  // Filtra los registros que contengan el término
-  const results = database.filter(record => record.name.toLowerCase().includes(searchTerm));
-
-  // Muestra los resultados encontrados
-  displayResults(results);
-});
-
-// Evento para actualizar un registro existente
-document.getElementById('updateForm').addEventListener('submit', e => {
-  e.preventDefault();
-
-  // Obtiene el ID ingresado
-  const id = parseInt(document.getElementById('updateId').value);
-
-  // Busca el registro en la base de datos
-  const record = database.find(r => r.id === id);
-
-  if (record) {
-    // Si existe, actualiza sus datos
-    record.name = document.getElementById('updateName').value;
-    record.email = document.getElementById('updateEmail').value;
-    showNotification('Registro actualizado con éxito');
-  } else {
-    // Si no existe, muestra error
-    showNotification('Registro no encontrado', 'red-500');
-  }
-
-  e.target.reset();
-});
-
-// Evento para eliminar un registro por ID
-document.getElementById('deleteForm').addEventListener('submit', e => {
-  e.preventDefault();
-
-  // Obtiene el ID ingresado
-  const id = parseInt(document.getElementById('deleteId').value);
-
-  // Busca el índice del registro
-  const index = database.findIndex(r => r.id === id);
-
-  if (index !== -1) {
-    // Si existe, lo elimina
-    database.splice(index, 1);
-    showNotification('Registro eliminado con éxito');
-  } else {
-    // Si no se encuentra, muestra error
-    showNotification('Registro no encontrado', 'red-500');
-  }
-
-  e.target.reset();
-});
-
-// Muestra resultados de búsqueda en pantalla
-function displayResults(results) {
-  const resultsList = document.getElementById('resultsList');
-  resultsList.innerHTML = ''; // Limpia resultados anteriores
-
-  if (results.length === 0) {
-    resultsList.innerHTML = '<p>No se encontraron registros</p>';
-  } else {
-    // Recorre los resultados y los muestra
-    results.forEach(record => {
-      const div = document.createElement('div');
-      div.className = 'p-2 border rounded';
-      div.innerHTML = `
-        <p><strong>ID:</strong> ${record.id}</p>
-        <p><strong>Nombre:</strong> ${record.name}</p>
-        <p><strong>Email:</strong> ${record.email}</p>
-      `;
-      resultsList.appendChild(div);
+// Función para manejar las pestañas/tabs
+function setupTabs() {
+  document.querySelectorAll('[data-tab-target]').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = document.querySelector(tab.dataset.tabTarget);
+      document.querySelectorAll('[data-tab-content]').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      target.classList.add('active');
+      tab.classList.add('active');
     });
+  });
+}
+
+// Función para crear usuarios
+function setupCreateUser() {
+  document.getElementById("createForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const nombre = document.getElementById("createName").value.trim();
+    const email = document.getElementById("createEmail").value.trim();
+    
+    if (!nombre || !email) {
+      alert("Por favor completa todos los campos");
+      return;
+    }
+    
+    try {
+      const nuevoRef = push(ref(db, "usuarios"));
+      await set(nuevoRef, { nombre, email });
+      alert("✅ Usuario creado correctamente");
+      document.getElementById("createForm").reset();
+    } catch (error) {
+      console.error("Error al crear usuario:", error);
+      alert("❌ Error al crear usuario");
+    }
+  });
+}
+
+// Función para buscar usuarios
+function setupSearchUsers() {
+  document.getElementById("searchForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const nombreBuscar = document.getElementById("searchName").value.toLowerCase().trim();
+    const resultsList = document.getElementById("resultsList");
+    resultsList.innerHTML = "<p>Cargando...</p>";
+    
+    try {
+      const snapshot = await get(ref(db, "usuarios"));
+      resultsList.innerHTML = "";
+      
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+        let encontrados = false;
+        
+        Object.entries(data).forEach(([id, user]) => {
+          if (user.nombre.toLowerCase().includes(nombreBuscar)) {
+            resultsList.innerHTML += `
+              <div class="user-result p-2 border rounded mb-2">
+                <p><strong>ID:</strong> ${id}</p>
+                <p><strong>Nombre:</strong> ${user.nombre}</p>
+                <p><strong>Email:</strong> ${user.email}</p>
+                <button class="btn-edit mt-2 p-1 bg-blue-500 text-white rounded" 
+                        data-id="${id}">Editar</button>
+              </div>`;
+            encontrados = true;
+          }
+        });
+        
+        if (!encontrados) {
+          resultsList.innerHTML = "<p>No se encontraron usuarios</p>";
+        }
+      } else {
+        resultsList.innerHTML = "<p>No hay usuarios registrados</p>";
+      }
+      
+      // Mostrar resultados
+      document.getElementById("searchResults").classList.remove("hidden");
+      
+      // Agregar event listeners a los botones de editar
+      document.querySelectorAll('.btn-edit').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const id = e.target.getAttribute('data-id');
+          fillUpdateForm(id);
+        });
+      });
+      
+    } catch (error) {
+      console.error("Error al buscar usuarios:", error);
+      resultsList.innerHTML = "<p>Error al buscar usuarios</p>";
+    }
+  });
+}
+
+// Función para rellenar el formulario de actualización
+async function fillUpdateForm(userId) {
+  try {
+    const snapshot = await get(ref(db, `usuarios/${userId}`));
+    
+    if (snapshot.exists()) {
+      const user = snapshot.val();
+      document.getElementById("updateId").value = userId;
+      document.getElementById("updateName").value = user.nombre;
+      document.getElementById("updateEmail").value = user.email;
+      
+      // Cambiar a la pestaña de actualización
+      document.querySelector('[data-tab-target="#updateTab"]').click();
+    }
+  } catch (error) {
+    console.error("Error al cargar usuario:", error);
+    alert("Error al cargar usuario para edición");
   }
-
-  // Muestra la sección de resultados
-  document.getElementById('searchResults').classList.remove('hidden');
 }
 
-// Muestra una notificación temporal en la esquina inferior derecha
-function showNotification(message, bgColor = 'green-500') {
-  const notification = document.getElementById('notification');
-
-  notification.textContent = message;
-
-  // Aplica clases para mostrar estilo y posición
-  notification.className = `fixed bottom-4 right-4 bg-${bgColor} text-white px-4 py-2 rounded`;
-
-  // Hace visible la notificación
-  notification.classList.remove('hidden');
-
-  // La oculta después de 3 segundos
-  setTimeout(() => notification.classList.add('hidden'), 3000);
+// Función para actualizar usuarios
+function setupUpdateUser() {
+  document.getElementById("updateForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const id = document.getElementById("updateId").value.trim();
+    const nuevoNombre = document.getElementById("updateName").value.trim();
+    const nuevoEmail = document.getElementById("updateEmail").value.trim();
+    
+    if (!id || !nuevoNombre || !nuevoEmail) {
+      alert("Por favor completa todos los campos");
+      return;
+    }
+    
+    try {
+      const registroRef = ref(db, `usuarios/${id}`);
+      const snapshot = await get(registroRef);
+      
+      if (snapshot.exists()) {
+        await update(registroRef, { 
+          nombre: nuevoNombre, 
+          email: nuevoEmail 
+        });
+        alert("✅ Usuario actualizado correctamente");
+        document.getElementById("updateForm").reset();
+      } else {
+        alert("❌ ID de usuario no encontrado");
+      }
+    } catch (error) {
+      console.error("Error al actualizar usuario:", error);
+      alert("❌ Error al actualizar usuario");
+    }
+  });
 }
+
+// Función para eliminar usuarios
+function setupDeleteUser() {
+  document.getElementById("deleteForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    
+    const id = document.getElementById("deleteId").value.trim();
+    
+    if (!id) {
+      alert("Por favor ingresa un ID de usuario");
+      return;
+    }
+    
+    try {
+      const registroRef = ref(db, `usuarios/${id}`);
+      const snapshot = await get(registroRef);
+      
+      if (snapshot.exists()) {
+        const confirmar = confirm(`¿Estás seguro de eliminar al usuario ${snapshot.val().nombre}?`);
+        if (confirmar) {
+          await remove(registroRef);
+          alert("🗑️ Usuario eliminado correctamente");
+          document.getElementById("deleteForm").reset();
+        }
+      } else {
+        alert("❌ ID de usuario no encontrado");
+      }
+    } catch (error) {
+      console.error("Error al eliminar usuario:", error);
+      alert("❌ Error al eliminar usuario");
+    }
+  });
+}
+
+// Inicializar todas las funciones cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+  setupTabs();
+  setupCreateUser();
+  setupSearchUsers();
+  setupUpdateUser();
+  setupDeleteUser();
+});
