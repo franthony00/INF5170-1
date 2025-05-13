@@ -7,23 +7,27 @@
   <link rel="stylesheet" href="cedulacss.css" />
 </head>
 <body>
-  <header>
-    <h1>Verifica tu Cédula Dominicana</h1>
-    <img src="imagenes/escudo-rd.png" alt="Escudo RD" class="escudo-img">
-  </header>
+  <main class="main-container">
 
-  <section class="container">
-    <form id="formularioCedula">
-      <div class="form-group">
-        <label for="cedulaInput">Ingresa tu cédula:</label>
-        <input type="text" id="cedulaInput" placeholder="Ej: 00113918775" maxlength="11"
-               oninput="formatearCedula(this)" onkeypress="return soloNumeros(event)">
-      </div>
-      <button type="submit" class="btn">Validar</button>
-    </form>
+    <section class="card card-left">
+      <h1>Verifica tu Cédula Dominicana</h1>
+      <img src="imagenes/escudo-rd.png" alt="Escudo RD" class="escudo-img" />
+    </section>
 
-    <div id="resultado" class="resultado"></div>
-  </section>
+    <section class="card card-right">
+      <form id="formularioCedula">
+        <div class="form-group">
+          <label for="cedulaInput">Ingresa tu cédula:</label>
+          <input type="text" id="cedulaInput" placeholder="Ej: 00113918775" maxlength="11"
+                oninput="formatearCedula(this)" onkeypress="return soloNumeros(event)">
+        </div>
+        <button type="submit" class="btn">Validar</button>
+      </form>
+
+      <div id="resultado" class="resultado"></div>
+    </section>
+
+  </main>
 
   <script src="estructura.js"></script>
 </body>
