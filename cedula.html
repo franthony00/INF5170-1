@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Validación de Cédula Dominicana</title>
-  <link rel="stylesheet" href="cedulacss.css">
+  <link rel="stylesheet" href="cedulacss.css" />
 </head>
 <body>
   <header>
     <h1>Verifica tu Cédula Dominicana</h1>
+    <img src="imagenes/escudo-rd.png" alt="Escudo RD" class="escudo-img">
   </header>
+
   <section class="container">
     <form id="formularioCedula">
       <div class="form-group">
         <label for="cedulaInput">Ingresa tu cédula:</label>
-        <input type="text" id="cedulaInput" placeholder="Ej: 00113918775">
+        <input type="text" id="cedulaInput" placeholder="Ej: 00113918775" maxlength="11"
+               oninput="formatearCedula(this)" onkeypress="return soloNumeros(event)">
       </div>
       <button type="submit" class="btn">Validar</button>
     </form>
+
     <div id="resultado" class="resultado"></div>
   </section>
+
   <script src="estructura.js"></script>
 </body>
 </html>
